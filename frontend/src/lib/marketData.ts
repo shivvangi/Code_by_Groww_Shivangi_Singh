@@ -182,7 +182,9 @@ export class MarketDataService {
 
       const results = await yahooFinance.trendingSymbols("US");
       if (results && results.quotes) {
-        const symbols = results.quotes.map((q: any) => q.symbol);
+        const symbols = results.quotes
+          .map((q: any) => q.symbol)
+          .filter((sym: string) => !sym.includes('-') && !sym.includes('='));
         quoteCache.set(cacheKey, { data: symbols, timestamp: now });
         return symbols.slice(0, count);
       }
