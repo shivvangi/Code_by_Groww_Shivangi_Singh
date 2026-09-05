@@ -4,7 +4,7 @@ An intelligent, real-time stock watchlist platform featuring automated "Meaningf
 
 ## 🔗 Live Links
 - **GitHub Repository**: [https://github.com/shivvangi/Code_by_Groww_Shivangi_Singh](https://github.com/shivvangi/Code_by_Groww_Shivangi_Singh)
-- **Live Demo (Vercel)**: `[Insert Vercel URL Here]`
+- **Live Demo (Vercel)**: [https://code-by-groww-shivangi-singh.vercel.app](https://code-by-groww-shivangi-singh.vercel.app)
 - **Demo Video**: `[Insert Demo Video Link Here]`
 
 ---
