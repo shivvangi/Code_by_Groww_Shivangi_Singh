@@ -38,16 +38,11 @@ An intelligent, real-time stock watchlist platform featuring automated "Meaningf
 
 The application is built using a modern decoupled architecture. The frontend strictly fetches from its own API routes or the dedicated backend API, utilizing `useSWR` for high-frequency real-time polling (every 10 seconds).
 
-```mermaid
-graph TD
-    A[Client Browser] -->|Next.js App Router| B(Frontend: Next.js + React)
-    B -->|useSWR Polling 10s| C(Next.js API Routes / Express Backend)
-    C -->|Proxy / Direct| D{MarketDataService}
-    D -->|Yahoo Finance API| E[Real-Time Market Data]
-    C -->|Supabase Client| F[(PostgreSQL / Supabase)]
-    F -->|user_sessions| F
-    F -->|watchlists| F
-```
+### Cloud Architecture Diagram
+![Cloud Architecture Diagram](./assets/architecture_diagram.png)
+
+### Sequence Diagram
+![Sequence Diagram](./assets/sequence_diagram.png)
 
 ### Directory Structure
 
