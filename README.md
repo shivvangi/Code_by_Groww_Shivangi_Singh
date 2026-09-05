@@ -39,10 +39,10 @@ An intelligent, real-time stock watchlist platform featuring automated "Meaningf
 The application is built using a modern decoupled architecture. The frontend strictly fetches from its own API routes or the dedicated backend API, utilizing `useSWR` for high-frequency real-time polling (every 10 seconds).
 
 ### Cloud Architecture Diagram
-![Cloud Architecture Diagram](./assets/architecture_diagram.png)
+![Cloud Architecture Diagram](./assets/ARCH_DIA.png)
 
 ### Sequence Diagram
-![Sequence Diagram](./assets/sequence_diagram.png)
+![Sequence Diagram](./assets/SEQ_DIA.png)
 
 ### Directory Structure
 
