@@ -1,9 +1,8 @@
 import yahooFinanceClass from "yahoo-finance2";
 const yahooFinance = new (yahooFinanceClass as any)();
 
-// In-memory cache to avoid rate limiting
 const quoteCache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_TTL_MS = 60 * 1000; // 1 minute
+const CACHE_TTL_MS = 10 * 1000; // 10 seconds
 
 export class MarketDataService {
   /**
