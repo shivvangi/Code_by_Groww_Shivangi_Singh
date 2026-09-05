@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Smart Wishlist - Code, By Groww",
+  title: "GrowwSight",
   description: "Real-time smart stock watchlist with dual-currency tracking, intelligent sorting, and live news.",
 };
 

@@ -8,14 +8,14 @@ export default function HowItWorks() {
     const [selectedCurrency, setSelectedCurrency] = useState<"USD" | "INR">("INR");
 
     return (
-        <section className={styles.wrapper} aria-label="How Smart Watchlist Works">
+        <section className={styles.wrapper} aria-label="How GrowwSight Works">
             <div className={styles.header}>
                 <div className={styles.badge}>
                     <Sparkles size={14} /> System Architecture
                 </div>
                 <h2 className={styles.title}>Engineered for High-Conviction Decisions</h2>
                 <p className={styles.subtitle}>
-                    Smart Watchlist continuously runs background edge intelligence to filter market noise, surface anomalies, and prioritize what requires your immediate focus.
+                    GrowwSight continuously runs background edge intelligence to filter market noise, surface anomalies, and prioritize what requires your immediate focus.
                 </p>
             </div>
 

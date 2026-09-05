@@ -63,7 +63,7 @@ function WatchlistContent() {
   };
 
   if (error) return <div className={styles.loading}>Failed to load watchlist. Error: {error.message || String(error)}</div>;
-  if (!data) return <div className={styles.loading}>Loading your smart watchlist...</div>;
+  if (!data) return <div className={styles.loading}>Loading GrowwSight...</div>;
 
   const watchlist = data.watchlist || [];
 
@@ -85,7 +85,7 @@ function WatchlistContent() {
     <div className={styles.container}>
       <header className={styles.header}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-          <h1 className={styles.title} style={{ margin: 0 }}>Smart Watchlist</h1>
+          <h1 className={styles.title} style={{ margin: 0 }}>GrowwSight</h1>
           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
             <div className={styles.viewToggleGroup}>
               <button
