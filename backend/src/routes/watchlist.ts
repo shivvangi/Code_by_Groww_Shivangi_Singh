@@ -220,7 +220,7 @@ watchlistRouter.get("/indices", async (req, res) => {
   try {
     const symbols = await MarketDataService.getTrendingSymbols(10);
     const quotes = await Promise.all(
-      symbols.map(async (ticker) => {
+      symbols.map(async (ticker: string) => {
         const q = await MarketDataService.getQuote(ticker);
         return {
           ticker,
