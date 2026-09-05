@@ -1,4 +1,4 @@
-# 📈 Smart Watchlist - Code, By Groww
+# <img src="./frontend/src/app/icon.jpg" width="36" height="36" align="center" alt="Groww Icon"> Smart Watchlist - Code, By Groww
 
 An intelligent, real-time stock watchlist platform featuring automated "Meaningful Change" detection, dual-currency tracking (INR / USD), interactive card stack & grid interfaces, and integrated market news.
 
