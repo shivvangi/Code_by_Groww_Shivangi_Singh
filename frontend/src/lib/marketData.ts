@@ -182,9 +182,18 @@ export class MarketDataService {
 
       const results = await yahooFinance.trendingSymbols("US");
       if (results && results.quotes) {
-        const symbols = results.quotes
+        let symbols = results.quotes
           .map((q: any) => q.symbol)
           .filter((sym: string) => !sym.includes('-') && !sym.includes('='));
+          
+        // Ensure we have at least 'count' symbols by appending defaults if needed
+        const fallbacks = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA"];
+        if (symbols.length < count) {
+            const needed = count - symbols.length;
+            const extra = fallbacks.filter(f => !symbols.includes(f)).slice(0, needed);
+            symbols = [...symbols, ...extra];
+        }
+
         quoteCache.set(cacheKey, { data: symbols, timestamp: now });
         return symbols.slice(0, count);
       }
