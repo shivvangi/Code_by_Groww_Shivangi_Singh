@@ -211,3 +211,28 @@ watchlistRouter.get("/news", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+/**
+ * Get popular indices/stocks for the market strip
+ * GET /api/watchlist/indices
+ */
+watchlistRouter.get("/indices", async (req, res) => {
+  try {
+    const symbols = await MarketDataService.getTrendingSymbols(10);
+    const quotes = await Promise.all(
+      symbols.map(async (ticker) => {
+        const q = await MarketDataService.getQuote(ticker);
+        return {
+          ticker,
+          name: q?.shortName || ticker,
+          price: q?.price,
+          change: q?.regularMarketChange,
+          changePercent: q?.regularMarketChangePercent
+        };
+      })
+    );
+    res.json(quotes.filter(q => q.price != null));
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+});

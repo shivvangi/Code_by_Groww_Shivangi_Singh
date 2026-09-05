@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
   try {
-    const symbols = ["^NSEI", "RELIANCE.NS", "BTC-USD", "AAPL", "GC=F"]; // Nifty 50, Reliance, BTC, Apple, Gold
+    const symbols = await MarketDataService.getTrendingSymbols(10);
     const quotes = await Promise.all(
       symbols.map(async (ticker) => {
         const q = await MarketDataService.getQuote(ticker);

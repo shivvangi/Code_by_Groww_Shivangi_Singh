@@ -181,6 +181,32 @@ export class MarketDataService {
   }
 
   /**
+   * Fetch daily top trending symbols
+   */
+  static async getTrendingSymbols(count: number = 10) {
+    try {
+      // Use in-memory cache to prevent spamming the trending API
+      const cacheKey = "TRENDING_SYMBOLS";
+      const now = Date.now();
+      const cached = quoteCache.get(cacheKey);
+      if (cached && now - cached.timestamp < 60000) { // 1 min cache for trending
+        return cached.data.slice(0, count);
+      }
+
+      const results = await yahooFinance.trendingSymbols("US");
+      if (results && results.quotes) {
+        const symbols = results.quotes.map((q: any) => q.symbol);
+        quoteCache.set(cacheKey, { data: symbols, timestamp: now });
+        return symbols.slice(0, count);
+      }
+      return ["^NSEI", "RELIANCE.NS", "BTC-USD", "AAPL", "GC=F"].slice(0, count);
+    } catch (error) {
+      console.error("Error fetching trending symbols:", error);
+      return ["^NSEI", "RELIANCE.NS", "BTC-USD", "AAPL", "GC=F"].slice(0, count);
+    }
+  }
+
+  /**
    * Fetch recent news for a given list of tickers
    */
   static async getNewsForTickers(tickers: string[]) {
